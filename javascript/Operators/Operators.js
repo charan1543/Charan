@@ -124,4 +124,22 @@ console.log(K>=M)
 let N=10
 var O='10'
 console.log (N==O)
-console.log (N===O)
+console.log (N===O) 
+
+// InEquality
+// strict Equallity (!=)
+//Loose Equallity (!==)
+//Ternary Operators (?:) / Condition rendaring:
+//syntax :- 
+//Condition ? True case : False case :  
+ 
+console.log(true?console.log("truecase"):console.log("falsecase"))
+console.log(2>3?console.log("truecase"):console.log("falsecase"))
+console.log(70<=79?console.log("Needs Improvement"):console.log("falsecase"))
+
+//3 console.logs used hear it executed only one console so result shows undefined
+//Logical Operators
+// && ||
+// var P =10
+// var Q = 10
+// console.log (a!=b || a ==b)
