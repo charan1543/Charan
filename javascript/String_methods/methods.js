@@ -68,4 +68,57 @@ var a =3
     console.log (b.split(" "))
     //it's extract as string/ word differently (['hey', 'Good', 'afternoon', 'guys']) 4
     console.log (b.split(" ",2)) //(['hey', 'Good'])
-    SELECT employee_id, salary, 1000 + salary AS salary_with_bonus from hr.employees;
+    
+    console.log (b)
+    console.log (b.replace("guys", " world")) // IF THERE is space you can noot find result
+
+    var a ="hello"
+    // var b = "world"
+    console.log (a.concat(b))
+    console.log (a.concat(" looks butifull"))
+    
+    //padstar
+    var a = "Good" 
+    console.log ( b.padEnd( 2, "3"))
+    // var a = 1;
+    // console.log (String(a).padEnd( 2, "3"))
+
+    var a = "apple ball cat dog eagle fan"
+    console.log (a.includes(b))
+    var b = "ball"
+    console.log (a.includes(b))
+
+    console.log (a.startsWith("banana"))
+    console.log (a.startsWith("apple"))
+    var a ="hi"
+    var z
+    console.log (z) //string / number not insereted
+    console.log (a.repeat (3))
+    for (i = 0; i<3; i++){
+        console.log (a)
+    }
+
+    for (i = 0; i<3; i++){
+        z+=a
+    }
+    console.log (z)//undifinedhihihi
+    var z =" "
+    for (i = 0; i<3; i++){
+        z+=a
+    }
+    console.log (z)
+
+    // garbage collector
+    //memory allocation and de allocation
+
+    var a ={
+        name: "cherry",
+        age: 28,
+        city: "jmd"
+    }
+    console.log (a.name)
+    //Trim the extra spaces from the string " JavaScript is cool! "
+    //
+    var a = "   JavaScript is cool!   ";
+    var b = a.trim()
+    console.log (b.includes("cool"))
