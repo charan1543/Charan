@@ -1,0 +1,96 @@
+CREATE SYNONYM EMPLOY FOR HR.EMPLOYEES;
+
+DROP SYNONYM EMPLOY;
+
+CREATE VIEW EMPLOY AS
+    SELECT
+        FIRST_NAME,
+        LAST_NAME,
+        SALARY
+    FROM
+        WORKERS;
+
+SELECT
+    *
+FROM
+    EMPLOY;
+
+DROP VIEW EMPLOY;
+
+-- complex view
+CREATE VIEW ROUND_SALARY AS
+    SELECT
+        FIRST_NAME,
+        LAST_NAME,
+        ROUND(SALARY) AS ROUNDED_SALARY
+    FROM
+        WORKERS;
+
+CREATE VIEW MIN_MAXSALARY AS
+    SELECT
+        MAX(SALARY) - MIN(SALARY) AS SALARY_DIFFERENCE
+    FROM
+        WORKERS;
+
+CREATE VIEW SALARY_RETRIEVE AS
+    SELECT
+        EMP_ID,
+        SUM(SALARY)
+    FROM
+        WORKERS
+    GROUP BY
+        EMP_ID;
+
+CREATE VIEW EMPLOYEE AS
+    SELECT
+        *
+    FROM
+        WORKERS1;
+
+DROP VIEW EMPLOYEE;
+
+SELECT
+    *
+FROM
+    WORKERS
+WHERE
+ROWNUM <= 5;
+SELECT
+    *
+FROM
+    WORKERS
+FETCH FIRST 5 ROWS ONLY;
+SELECT AVG (SALARY) FROM  HR.EMPLOYEES;
+whose salary is greater than the average salary in the company.
+SELECT
+    FIRST_NAME,
+    LAST_NAME,
+    SALARY
+FROM
+    HR.EMPLOYEES
+WHERE
+    SALARY > (
+        SELECT
+            AVG(SALARY)
+        FROM
+            HR.EMPLOYEES
+    );
+
+Create a View to show the average salary per year (group by year) for all employees. You can extract the year from the hire_DATE.
+CREATE VIEW AVG_SALARY_BY_YEAR AS
+    SELECT
+        EXTRACT(YEAR FROM JOIN_DATE) AS JOIN_YEAR,
+        AVG(SALARY)                  AS AVG_SALARY
+    FROM
+        WORKERS group by EXTRACT(YEAR FROM JOIN_DATE);
+DROP VIEW AVG_SALARY_BY_YEAR;
+-- Show Departments with More Than 2 Employees
+SELECT
+    DEPARTMENT_ID,
+    COUNT(*) AS EMP_COUNT
+FROM
+    HR.EMPLOYEES
+GROUP BY
+    DEPARTMENT_ID
+HAVING
+    COUNT(*) > 2;
