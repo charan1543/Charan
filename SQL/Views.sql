@@ -93,3 +93,91 @@ SELECT
 FROM
     MIN_MAX_SALARY;
 DROP VIEW MIN_MAX_SALARY;
+
+-- 06/05/2025
+--Partition view:-  It used to a a view on compound queries
+-- It is used to combine data from multiple tables which are logically partitioned.
+
+CREATE TABLE XXCCT_SALES_ORDER_2023 (
+    SALESORDER_ID NUMBER,
+    AMOUNT        NUMBER,
+    SALES_DATE    DATE,
+    CONSTRAINT XSO2023_CHCK
+        CHECK ( SALES_DATE >= TO_DATE('01-01-2023', 'DD-MM-YYYY')
+                AND SALES_DATE < TO_DATE('01-01-2024', 'DD-MM-YYYY') )
+);
+
+CREATE TABLE XXCCT_SALES_ORDER_2024 (
+    SALESORDER_ID NUMBER,
+    AMOUNT        NUMBER,
+    SALES_DATE    DATE,
+    CONSTRAINT XSO2024_CHCK
+        CHECK ( SALES_DATE >= TO_DATE('01-01-2024', 'DD-MM-YYYY')
+                AND SALES_DATE < TO_DATE('01-01-2025', 'DD-MM-YYYY') )
+);
+
+CREATE TABLE XXCCT_SALES_ORDER_2025 (
+    SALESORDER_ID NUMBER,
+    AMOUNT        NUMBER,
+    SALES_DATE    DATE,
+    CONSTRAINT XSO2025_CHCK
+        CHECK ( SALES_DATE >= TO_DATE('01-01-2025', 'DD-MM-YYYY')
+                AND SALES_DATE < TO_DATE('01-01-2026', 'DD-MM-YYYY') )
+);
+
+SELECT
+    SALESORDER_ID,
+    AMOUNT,
+    SALES_DATE
+FROM
+    XXCCT_SALES_ORDER_2023;
+union all
+select SALESORDER_ID, AMOUNT, SALES_DATE from XXCCT_SALES_ORDER_2024;
+union all
+select SALESORDER_ID,
+    AMOUNT,
+    SALES_DATE
+    FROM
+        XXCCT_SALES_ORDER_2025;
+
+CREATE VIEW LAST_3_YEARS_SALES_ORDER AS
+    SELECT
+        SALESORDER_ID,
+        AMOUNT,
+        SALES_DATE
+    FROM
+        XXCCT_SALES_ORDER_2023;
+union all
+select SALESORDER_ID, AMOUNT, SALES_DATE from XXCCT_SALES_ORDER_2024;
+union all
+select SALESORDER_ID,
+    AMOUNT,
+    SALES_DATE
+    FROM
+        XXCCT_SALES_ORDER_2025;
+
+SELECT * FROM LAST_3_YEARS_SALES_ORDER;
+DROP VIEW LAST_3_YEARS_SALES_ORDER;
+drop table XXCCT_SALES_ORDER_2024;
+drop table XXCCT_SALES_ORDER_2025;
+DROP TABLE XXCCT_SALES_ORDER_2023;
+
+-- Materialized View:-
+-- It is used to define a view that stores the data from the 
+-- result of a query physically in the database.
+-- It should be refreshed periodically to keep data up to date.
+
+-- MATERIALIZED VIEW: -
+CREATE MATERIALIZED VIEW EMP AS
+    SELECT
+        *
+    FROM
+        EMPLOYEE;DROP TABLE XXCCT_SALES_ORDER_2024;
+DROP TABLE XXCCT_SALES_ORDER_2025;
+
+CREATE TABLE EMPLOYEE
+    AS
+        SELECT
+            *
+        FROM
+            HR.EMPLOYEES;
