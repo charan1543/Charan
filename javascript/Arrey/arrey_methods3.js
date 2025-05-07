@@ -207,3 +207,82 @@ var m = [1, 2, 3, 4, 5, 69, 23, 43, 45];
 //         }
 //     }
 // }
+
+var details = [
+    {name:"kiran", age: 28, address: "kdp", job: "electrition", job_id: 4},
+    {name:"ravi", age: 29, address: "kndp", job: "electrition", job_id: 2},
+    {name: "akil",age:28, address: "plvd", job :"electrition", job_id:1},
+    {name: "fayz", age: 30, address: "ryd", job: "electrition", job_id:3}
+]
+console.log (details)
+details.sort ((a,b)=> a.age - b.age)
+console.log (details)
+//  for name sorting use 'localeCompare'
+details.sort ((a,b)=> a.name.localeCompare (b.name))
+
+// Map set weekmap weekset
+// Map
+// it is used store the data in the form of key values
+// key can be of any data type  and value can be of any data type
+// in this key will of any data type and value will you of any data type
+
+var M = new Map ()
+
+M.set ("name","ravi")
+M.set ("age", 28)
+console.log (M)
+console.log (M.size)
+var arr = [1,2,3,4,5]
+for (i of arr){
+    M.set(i,arr[i])
+}
+console.log(M)
+
+// for of loop to itterate the Map
+// set-> add a new item into the Map
+// size difine the length of Map
+// get(key)
+// has(key)
+// delete(key)
+// clear
+// set no duplicate values
+
+M.set ({name: "ravi "},details)
+console.log(M)
+//weekmap:- In a WeakMap, the keys must be objects (not primitive values like strings, numbers, etc.).
+// Values: The values can be any type (objects, primitive values, etc.).
+
+
+
+var N = new Map([ 
+    ["Monday", "Gym"],
+    ["Tuesday", "Work from home"],
+    ["Wednesday", "Team meeting"],
+    ["Thursday", "Project work"],
+    ["Friday", "Remote work"],
+    ["Saturday", "Hiking"],
+    ["Sunday", "Rest"]
+  ]);
+console.log (N.get("Friday"));
+console.log (N.delete("Wednesday"))
+console.log (N.has ("Wednesday"))
+console.log (N)
+
+// WeakSet:- Values: The values in a WeakSet must be objects (like in WeakMap), and it cannot store primitive values.
+
+// Weak References: Similar to WeakMap, WeakSet holds weak references to its values, meaning that if there are no other
+//  references to an object stored in the set, it will be eligible for garbage collection.
+// It’s especially useful for scenarios where you need to track objects, but you don't want to keep those objects alive 
+// unnecessarily.
+
+var M = new Map ()
+
+M.set ("name","ravi")
+M.set ("age", 28)
+console.log (M)
+console.log (M.size)
+var arr = [1,2,3,4,5]
+for (i of arr){
+    M.set(i,arr[i])
+}
+console.log(M)
