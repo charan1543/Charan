@@ -71,3 +71,18 @@ if (error) {
 } else {
     console.log(result);
 }
+
+var obj = {
+    name: 'ram',
+    job :{company :'NYB', city : 'HYD'} 
+};
+console.log (obj.job.company)
+
+var user = {
+  name: "raghu",
+  age: 25,
+  location: "HYD"
+};
+console.log(user)
+const jsonString = JSON.stringify(user);
+console.log(jsonString);
