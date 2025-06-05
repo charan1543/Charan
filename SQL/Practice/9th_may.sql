@@ -43,3 +43,6 @@ select * from WORK1;
 -- | Foreign Keys       | High        | B-Tree               | Used in joins/filters                                 |
 -- | Status/Flags       | Low         | Bitmap (Oracle only) | Bitmap handles repetitive data well                   |
 -- | Job Titles, Cities | Medium      | B-Tree (if filtered) | May benefit if used in `WHERE`, `GROUP BY` frequently |
+
+-- function_based_index is when you create particular fuction same using to retrive data then its take range scan 
+-- if yoiu using differen function when you retrive data / created its take full table scan;

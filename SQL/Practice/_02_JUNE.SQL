@@ -63,6 +63,7 @@ select * from employee where trunc (sysdate) - hire_date = 100;
 -- Date
 
 -- Boolean
+-- This is a logical value datatype (Either TRUE/FALSE)
 
 -- These variables are used to store data that can be manipulated in PL/SQL blocks.
 DECLARE
