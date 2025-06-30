@@ -24,3 +24,6 @@ function even (){
   console.log (i);
 }
 even();
+// Bind parameter is used in WHERE Clause, VALUES clause in INSERT, SET in UPDATE.
+// Prefixed with a colon ':' symbol. for eg., (:emp_id)
+// It is used to pass values to a variable dynamically during runtime.
